@@ -7,33 +7,12 @@
  *
  * @format
  */
-
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import NavigationService from './components/Nav';
 
 const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Working on IT&reg;</Text>
-      <View style={styles.copyright}>
-        <Text>&copy; 2020 dmithamo</Text>
-      </View>
-    </View>
-  );
+  return <NavigationService />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  copyright: {
-    opacity: 0.3,
-    position: 'absolute',
-    bottom: 0,
-    padding: 2,
-  },
-});
 
 export default App;
