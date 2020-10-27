@@ -7,7 +7,9 @@ export default function PlaceholderScreen() {
   return (
     <MainLayout>
       <View style={styles.container}>
-        <CustomTextWrapper>Working on IT&reg;</CustomTextWrapper>
+        <CustomTextWrapper style={styles.trademark}>
+          Working on IT&reg;
+        </CustomTextWrapper>
         <CustomTextWrapper style={styles.copyright}>
           &copy;2020 dmithamo
         </CustomTextWrapper>
@@ -21,6 +23,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  trademark: {
+    fontSize: 32,
   },
   copyright: {
     padding: 3,

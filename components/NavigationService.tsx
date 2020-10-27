@@ -7,14 +7,22 @@ import Header from './Header';
 export type NavItem = {
   name: string;
   component: () => JSX.Element;
+  icon: string;
 };
 
 export const navItems: NavItem[] = [
-  { name: 'home', component: PlaceholderScreen },
-  { name: 'expenses', component: PlaceholderScreen },
-  { name: 'budget', component: PlaceholderScreen },
-  { name: 'settings', component: PlaceholderScreen },
-  { name: 'profile', component: PlaceholderScreen },
+  { name: 'home', component: PlaceholderScreen, icon: 'home-outline' },
+  {
+    name: 'expenses',
+    component: PlaceholderScreen,
+    icon: 'chart-bar-stacked',
+  },
+  { name: 'budget', component: PlaceholderScreen, icon: 'wallet-outline' },
+  {
+    name: 'profile',
+    component: PlaceholderScreen,
+    icon: 'account-circle-outline',
+  },
 ];
 
 export default function NavigationService() {
@@ -25,10 +33,6 @@ export default function NavigationService() {
         headerMode="screen"
         initialRouteName={navItems[0].name}
         screenOptions={{
-          headerStyle: {
-            height: 50,
-            shadowColor: 'white',
-          },
           header: ({ navigation, scene, previous }) => (
             <Header previous={previous} navigation={navigation} scene={scene} />
           ),

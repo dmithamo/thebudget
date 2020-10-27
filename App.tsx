@@ -11,6 +11,7 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import NavigationService from './components/NavigationService';
 import {
+  Colors,
   configureFonts,
   DefaultTheme,
   Provider as PaperProvider,
@@ -22,7 +23,10 @@ const theme: Theme = {
   dark: true,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#eceff1',
+    background: Colors.grey100,
+    primary: Colors.white,
+    text: Colors.grey800,
+    accent: Colors.yellow900,
   },
   fonts: configureFonts({
     default: {

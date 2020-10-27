@@ -15,6 +15,7 @@ const CustomTextWrapper: React.FC<CustomTextWrapperProps> = ({
     <Text
       style={{
         fontFamily: theme.fonts.light.fontFamily,
+        color: theme.colors.text,
         ...style,
       }}>
       {children}

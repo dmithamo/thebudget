@@ -4,6 +4,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CustomTextWrapper from './CustomTextWrapper';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useTheme } from 'react-native-paper';
 
 type SceneProp = Scene<Route<string, object | undefined>>;
 type HeaderProps = {
@@ -14,17 +16,25 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ navigation, previous, scene }) => {
   const title = scene?.descriptor.options.headerTitle || scene?.route.name;
-
+  const theme = useTheme();
   return (
-    <View style={headerStyles.header}>
+    <View
+      style={{
+        ...headerStyles.header,
+        backgroundColor: theme.colors.primary,
+      }}>
       {previous ? (
         <TouchableOpacity
           style={headerStyles.headerItem}
           onPress={navigation.goBack}>
-          <CustomTextWrapper>Back</CustomTextWrapper>
+          <Icon size={24} name="chevron-left" />
         </TouchableOpacity>
       ) : undefined}
-      <CustomTextWrapper style={headerStyles.headerItem}>
+      <CustomTextWrapper
+        style={{
+          ...headerStyles.headerItem,
+          fontFamily: theme.fonts.regular.fontFamily,
+        }}>
         {title}
       </CustomTextWrapper>
     </View>
@@ -37,12 +47,13 @@ const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: 'white',
-    elevation: 5,
+    elevation: 1,
   },
 
   headerItem: {
     padding: 16,
+    textTransform: 'capitalize',
+    fontSize: 16,
   },
 });
 
