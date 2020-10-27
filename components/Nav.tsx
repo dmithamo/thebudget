@@ -3,6 +3,7 @@ import {
   NavigationProp,
   Route,
   useNavigation,
+  useRoute,
 } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Scene } from '@react-navigation/stack/lib/typescript/src/types';
@@ -93,14 +94,23 @@ const headerStyles = StyleSheet.create({
 
 export const BottomNavBar: React.FC = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  const isCurrentRoute = (routeName: string) => routeName === route.name;
   return (
     <View style={navbarStyles.navbar}>
       {navItems.map(({ name }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(name)}
-          style={navbarStyles.navbarItem}
+          style={navbarStyles.navbarBtn}
           key={name}>
-          <Text>{name}</Text>
+          <Text
+            style={{
+              ...navbarStyles.navBtnIcon,
+              ...{ opacity: isCurrentRoute(name) ? 1 : 0.65 },
+            }}>
+            {name}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -113,8 +123,13 @@ const navbarStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
+    elevation: 5,
   },
-  navbarItem: {
-    padding: 24,
+  navbarBtn: {
+    padding: 16,
+  },
+
+  navBtnIcon: {
+    color: 'black',
   },
 });
