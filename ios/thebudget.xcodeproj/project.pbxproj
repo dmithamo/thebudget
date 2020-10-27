@@ -32,6 +32,9 @@
 		5BA751034FB945A8B5E9BE44 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2700B81B07944B439C80D251 /* Octicons.ttf */; };
 		83482F55C9D040ADB65E9FB8 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69726F0E1C7A4052B0997A01 /* SimpleLineIcons.ttf */; };
 		05A4C42BA3034B0D8DA71307 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC8BFB6228EC4C21A64420DB /* Zocial.ttf */; };
+		3F778E2AF8EC4FA59DE3D59C /* IBMPlexSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8F0C741EB6A43718539E2B0 /* IBMPlexSans-Light.otf */; };
+		CD58F7992D5240F6A8BFDF0D /* IBMPlexSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32744AF161444698BBC93260 /* IBMPlexSans-Medium.otf */; };
+		4B5682AB52A94415B48A3E80 /* IBMPlexSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A801AC4769E4D30A993A29C /* IBMPlexSans-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		2700B81B07944B439C80D251 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		69726F0E1C7A4052B0997A01 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		AC8BFB6228EC4C21A64420DB /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F8F0C741EB6A43718539E2B0 /* IBMPlexSans-Light.otf */ = {isa = PBXFileReference; name = "IBMPlexSans-Light.otf"; path = "../assets/fonts/IBMPlexSans-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32744AF161444698BBC93260 /* IBMPlexSans-Medium.otf */ = {isa = PBXFileReference; name = "IBMPlexSans-Medium.otf"; path = "../assets/fonts/IBMPlexSans-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8A801AC4769E4D30A993A29C /* IBMPlexSans-Regular.otf */ = {isa = PBXFileReference; name = "IBMPlexSans-Regular.otf"; path = "../assets/fonts/IBMPlexSans-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +215,9 @@
 				2700B81B07944B439C80D251 /* Octicons.ttf */,
 				69726F0E1C7A4052B0997A01 /* SimpleLineIcons.ttf */,
 				AC8BFB6228EC4C21A64420DB /* Zocial.ttf */,
+				F8F0C741EB6A43718539E2B0 /* IBMPlexSans-Light.otf */,
+				32744AF161444698BBC93260 /* IBMPlexSans-Medium.otf */,
+				8A801AC4769E4D30A993A29C /* IBMPlexSans-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -368,6 +377,9 @@
 				5BA751034FB945A8B5E9BE44 /* Octicons.ttf in Resources */,
 				83482F55C9D040ADB65E9FB8 /* SimpleLineIcons.ttf in Resources */,
 				05A4C42BA3034B0D8DA71307 /* Zocial.ttf in Resources */,
+				3F778E2AF8EC4FA59DE3D59C /* IBMPlexSans-Light.otf in Resources */,
+				CD58F7992D5240F6A8BFDF0D /* IBMPlexSans-Medium.otf in Resources */,
+				4B5682AB52A94415B48A3E80 /* IBMPlexSans-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

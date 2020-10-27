@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import CustomTextWrapper from '../components/CustomTextWrapper';
 import MainLayout from '../components/layouts';
 
 export default function PlaceholderScreen() {
   return (
     <MainLayout>
       <View style={styles.container}>
-        <Text>Working on IT&reg;</Text>
-        <Text style={styles.copyright}>&copy;2020 dmithamo</Text>
+        <CustomTextWrapper>Working on IT&reg;</CustomTextWrapper>
+        <CustomTextWrapper style={styles.copyright}>
+          &copy;2020 dmithamo
+        </CustomTextWrapper>
       </View>
     </MainLayout>
   );

@@ -71,6 +71,9 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>IBMPlexSans-Light.otf</string>
+		<string>IBMPlexSans-Medium.otf</string>
+		<string>IBMPlexSans-Regular.otf</string>
 	</array>
 </dict>
 </plist>
