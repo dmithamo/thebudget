@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavBar } from '../Nav';
+import { BottomNavBar } from '../Nav';
 
 type MainLayoutProps = {
   children: JSX.Element | JSX.Element[];
@@ -10,7 +10,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }): JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.main}>{children}</View>
-      <NavBar />
+      <BottomNavBar />
     </View>
   );
 };
