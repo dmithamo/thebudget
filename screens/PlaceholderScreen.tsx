@@ -1,13 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import CustomTextWrapper from '../components/CustomTextWrapper';
 import MainLayout from '../components/layouts';
 
 export default function PlaceholderScreen() {
   return (
     <MainLayout>
       <View style={styles.container}>
-        <Text>Working on IT&reg;</Text>
-        <Text style={styles.copyright}>&copy;2020 dmithamo</Text>
+        <CustomTextWrapper style={styles.trademark}>
+          Working on IT&reg;
+        </CustomTextWrapper>
+        <CustomTextWrapper style={styles.copyright}>
+          &copy;2020 dmithamo
+        </CustomTextWrapper>
       </View>
     </MainLayout>
   );
@@ -18,6 +23,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  trademark: {
+    fontSize: 32,
   },
   copyright: {
     padding: 3,
