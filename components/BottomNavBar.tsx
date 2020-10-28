@@ -23,7 +23,7 @@ export const BottomNavBar: React.FC = () => {
           key={name}>
           <Icon
             name={isCurrentRoute(name) ? icon.split('-outline')[0] : icon}
-            size={32}
+            size={28}
             style={{
               ...navbarStyles.navIcon,
               ...{
@@ -45,19 +45,17 @@ const navbarStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    elevation: 16,
+    elevation: 4,
+    paddingVertical: 4,
   },
   navbarBtn: {
-    padding: 10,
+    padding: 8,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  navIcon: {
-    borderRadius: 10,
-    padding: 4,
-  },
+  navIcon: {},
 
   navText: {
     textTransform: 'capitalize',
