@@ -2,21 +2,21 @@ import { Expense, Income, TransactionPeriod } from '../../utils/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import isEqual from 'lodash/isEqual';
 
-interface transactions {
+interface TransactionsState {
   transactionPeriod: TransactionPeriod;
   date: Date;
   expenses: Expense[];
   incomes: Income[];
 }
 
-const initialState: transactions = {
+const initialState: TransactionsState = {
   transactionPeriod: TransactionPeriod.Monthly,
   date: new Date(),
   expenses: [],
   incomes: [],
 };
 
-const transactionsSlice = createSlice({
+const transactionsState = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
@@ -50,6 +50,6 @@ export const {
   removeIncome,
   setTransactionPeriod,
   setDate,
-} = transactionsSlice.actions;
+} = transactionsState.actions;
 
-export default (transactionsSlice as any).reducer;
+export default transactionsState.reducer;

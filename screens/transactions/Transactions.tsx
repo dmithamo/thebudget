@@ -1,19 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import CustomTextWrapper from '../../components/CustomTextWrapper';
 import MainLayout from '../../components/layouts';
-import { RootState } from '../../services/store/rootReducer';
+import Expenses from './Expenses';
 
-const Expenses: React.FC = (): JSX.Element => {
-  const transactions = useSelector((state: RootState) => state.transactions);
+const Transactions: React.FC = (): JSX.Element => {
   return (
     <MainLayout>
-      <CustomTextWrapper>Transactions</CustomTextWrapper>
-      <CustomTextWrapper>
-        {JSON.stringify(transactions, null, 4)}
-      </CustomTextWrapper>
+      <Expenses />
     </MainLayout>
   );
 };
 
-export default Expenses;
+export default Transactions;
