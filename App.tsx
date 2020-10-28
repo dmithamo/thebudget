@@ -28,7 +28,7 @@ const theme: Theme = {
     background: Colors.grey100,
     primary: Colors.white,
     text: Colors.grey800,
-    accent: Colors.yellow900,
+    accent: Colors.greenA400,
   },
   fonts: configureFonts({
     default: {
