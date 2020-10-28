@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,9 +8,13 @@ import BottomNavBar from '../BottomNavBar';
 
 type MainLayoutProps = {
   children: JSX.Element | JSX.Element[];
+  centerContent?: boolean;
 };
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }): JSX.Element => {
+const MainLayout: React.FC<MainLayoutProps> = ({
+  children,
+  centerContent,
+}): JSX.Element => {
   const theme = useTheme();
   return (
     <SafeAreaView
@@ -22,7 +27,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }): JSX.Element => {
         backgroundColor={theme.colors.primary}
         hidden={false}
       />
-      <ScrollView centerContent contentContainerStyle={styles.contentContainer}>
+      <ScrollView
+        contentContainerStyle={{
+          ...styles.contentContainer,
+          flexGrow: centerContent ? 1 : 0,
+        }}>
         {children}
       </ScrollView>
       <BottomNavBar />
@@ -30,12 +39,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }): JSX.Element => {
   );
 };
 
+MainLayout.defaultProps = {
+  centerContent: false,
+};
+
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
   },
   contentContainer: {
-    flexGrow: 1,
     paddingHorizontal: 16,
     paddingVertical: 16,
   },

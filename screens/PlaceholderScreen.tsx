@@ -5,7 +5,7 @@ import MainLayout from '../components/layouts';
 
 export default function PlaceholderScreen() {
   return (
-    <MainLayout>
+    <MainLayout centerContent>
       <View style={styles.container}>
         <CustomTextWrapper style={styles.trademark}>
           Working on IT&reg;

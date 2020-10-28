@@ -9,14 +9,16 @@
  */
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import NavigationService from './components/NavigationService';
+import NavigationService from './services/navigation';
 import {
   Colors,
   configureFonts,
   DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
+import { Provider as StoreProvider } from 'react-redux';
 import { Theme } from 'react-native-paper/lib/typescript/src/types';
+import store from './services/store';
 
 const theme: Theme = {
   ...DefaultTheme,
@@ -26,7 +28,7 @@ const theme: Theme = {
     background: Colors.grey100,
     primary: Colors.white,
     text: Colors.grey800,
-    accent: Colors.yellow900,
+    accent: Colors.greenA400,
   },
   fonts: configureFonts({
     default: {
@@ -52,9 +54,11 @@ const theme: Theme = {
 
 const App = () => {
   return (
-    <PaperProvider theme={theme}>
-      <NavigationService />
-    </PaperProvider>
+    <StoreProvider store={store}>
+      <PaperProvider theme={theme}>
+        <NavigationService />
+      </PaperProvider>
+    </StoreProvider>
   );
 };
 
