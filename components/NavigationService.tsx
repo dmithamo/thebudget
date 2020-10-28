@@ -6,7 +6,7 @@ import Header from './Header';
 
 export type NavItem = {
   name: string;
-  component: () => JSX.Element;
+  component: React.FC;
   icon: string;
 };
 
@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
   {
     name: 'profile',
     component: PlaceholderScreen,
-    icon: 'account-circle-outline',
+    icon: 'cogs',
   },
 ];
 

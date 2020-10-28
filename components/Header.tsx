@@ -51,7 +51,7 @@ const headerStyles = StyleSheet.create({
   },
 
   headerItem: {
-    padding: 16,
+    padding: 12,
     textTransform: 'capitalize',
     fontSize: 16,
   },
