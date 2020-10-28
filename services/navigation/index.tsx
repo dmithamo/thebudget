@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import HomeScreen from '../../screens/HomeScreen';
+import Transactions from '../../screens/transactions/Transactions';
 import PlaceholderScreen from '../../screens/PlaceholderScreen';
 import Header from '../../components/Header';
 
@@ -12,9 +12,9 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { name: 'home', component: HomeScreen, icon: 'home-outline' },
+  { name: 'transactions', component: Transactions, icon: 'bank-transfer' },
   {
-    name: 'expenses',
+    name: 'dashboard',
     component: PlaceholderScreen,
     icon: 'chart-bar-stacked',
   },
