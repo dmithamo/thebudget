@@ -20,7 +20,7 @@ export const navItems: NavItem[] = [
   },
   { name: 'budget', component: PlaceholderScreen, icon: 'wallet-outline' },
   {
-    name: 'profile',
+    name: 'settings',
     component: PlaceholderScreen,
     icon: 'cogs',
   },
