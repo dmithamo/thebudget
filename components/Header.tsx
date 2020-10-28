@@ -2,10 +2,9 @@ import { NavigationProp, Route } from '@react-navigation/native';
 import { Scene } from '@react-navigation/stack/lib/typescript/src/types';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import CustomTextWrapper from './CustomTextWrapper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useTheme } from 'react-native-paper';
+import CustomButton from './CustomButton';
 
 type SceneProp = Scene<Route<string, object | undefined>>;
 type HeaderProps = {
@@ -24,11 +23,12 @@ const Header: React.FC<HeaderProps> = ({ navigation, previous, scene }) => {
         backgroundColor: theme.colors.primary,
       }}>
       {previous ? (
-        <TouchableOpacity
+        <CustomButton
           style={headerStyles.headerItem}
-          onPress={navigation.goBack}>
-          <Icon size={24} name="chevron-left" />
-        </TouchableOpacity>
+          icon="arrow-left"
+          iconSize={28}
+          onPress={navigation.goBack}
+        />
       ) : undefined}
       <CustomTextWrapper
         style={{

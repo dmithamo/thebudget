@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import { useTheme } from 'react-native-paper';
-import CustomTextWrapper from './CustomTextWrapper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import CustomButton from './CustomButton';
 
 type Tab = {
   name: string;
@@ -30,7 +29,7 @@ const TabSelector: React.FC<TabSelectorProps> = ({
         backgroundColor: theme.colors.primary,
       }}>
       {tabs.map(({ name, icon }) => (
-        <TouchableOpacity
+        <CustomButton
           style={{
             ...styles.tab,
             backgroundColor: isSelected(name)
@@ -38,28 +37,20 @@ const TabSelector: React.FC<TabSelectorProps> = ({
               : theme.colors.primary,
           }}
           key={name}
-          onPress={() => onSelectTab(name)}>
-          <CustomTextWrapper
-            style={{
-              fontFamily: theme.fonts.medium.fontFamily,
-              fontWeight: theme.fonts.medium.fontWeight,
-              color: isSelected(name) ? theme.colors.accent : theme.colors.text,
-            }}>
-            {name}
-          </CustomTextWrapper>
-          {icon ? (
-            <Icon
-              style={{
-                ...styles.tabIcon,
-                color: isSelected(name)
-                  ? theme.colors.accent
-                  : theme.colors.text,
-              }}
-              size={20}
-              name={icon}
-            />
-          ) : undefined}
-        </TouchableOpacity>
+          text={name}
+          textStyle={{
+            fontFamily: theme.fonts.medium.fontFamily,
+            fontWeight: theme.fonts.medium.fontWeight,
+            color: isSelected(name) ? theme.colors.accent : theme.colors.text,
+          }}
+          icon={icon}
+          iconSize={20}
+          iconStyle={{
+            ...styles.tabIcon,
+            color: isSelected(name) ? theme.colors.accent : theme.colors.text,
+          }}
+          onPress={() => onSelectTab(name)}
+        />
       ))}
     </ScrollView>
   );
@@ -73,14 +64,7 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   tab: {
-    paddingVertical: 12,
     width: 124,
-    textAlign: 'center',
-    borderRadius: 10,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   tabIcon: {

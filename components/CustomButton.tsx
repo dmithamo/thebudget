@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CustomTextWrapper from './CustomTextWrapper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { StyleSheet } from 'react-native';
 
 type CustomButtonProps = {
   style?: object;
@@ -22,7 +23,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   iconStyle,
   onPress,
 }) => (
-  <TouchableOpacity style={{ ...style }} onPress={onPress}>
+  <TouchableOpacity style={{ ...styles.container, ...style }} onPress={onPress}>
     {text ? (
       <CustomTextWrapper style={textStyle}>{text}</CustomTextWrapper>
     ) : undefined}
@@ -33,4 +34,15 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   </TouchableOpacity>
 );
 
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 12,
+    textAlign: 'center',
+    borderRadius: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 export default CustomButton;

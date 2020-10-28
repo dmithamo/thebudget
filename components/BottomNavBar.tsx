@@ -50,20 +50,12 @@ const navbarStyles = StyleSheet.create({
   },
   navbarBtn: {
     padding: 8,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   navIcon: {
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 10,
-  },
-
-  navText: {
-    textTransform: 'capitalize',
-    fontSize: 12,
   },
 });
 
