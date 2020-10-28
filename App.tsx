@@ -9,7 +9,7 @@
  */
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import NavigationService from './components/NavigationService';
+import NavigationService from './services/navigation';
 import {
   Colors,
   configureFonts,

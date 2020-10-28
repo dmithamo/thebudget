@@ -1,8 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import PlaceholderScreen from '../screens/PlaceholderScreen';
-import Header from './Header';
+import HomeScreen from '../../screens/HomeScreen';
+import PlaceholderScreen from '../../screens/PlaceholderScreen';
+import Header from '../../components/Header';
 
 export type NavItem = {
   name: string;
@@ -11,7 +12,7 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { name: 'home', component: PlaceholderScreen, icon: 'home-outline' },
+  { name: 'home', component: HomeScreen, icon: 'home-outline' },
   {
     name: 'expenses',
     component: PlaceholderScreen,

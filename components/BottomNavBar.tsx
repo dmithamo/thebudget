@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { navItems } from './NavigationService';
+import { navItems } from '../services/navigation';
 import { useTheme } from 'react-native-paper';
 
 export const BottomNavBar: React.FC = () => {
