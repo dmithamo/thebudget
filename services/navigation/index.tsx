@@ -31,7 +31,7 @@ export default function NavigationService() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        headerMode="screen"
+        headerMode="none"
         initialRouteName={navItems[0].name}
         screenOptions={{
           header: ({ navigation, scene, previous }) => (

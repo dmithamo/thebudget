@@ -33,17 +33,33 @@ export type Expense = {
   amount: number;
   description: string;
   timestamp: Date;
-  category:
-    | 'groceries'
-    | 'household'
-    | 'dates'
-    | 'airtime'
-    | 'health'
-    | CustomCategory;
+  category: Category;
 };
+
+export enum Category {
+  Food = 1,
+  House,
+  Utilities,
+  Groceries,
+  Dates,
+  Other,
+}
+
+export enum IncomeCategory {
+  Salary = 1,
+  Gift,
+  Other,
+}
 
 // fields that fully describe an Income
 export type Income = {
+  amount: number;
+  category: IncomeCategory;
+  timestamp: Date;
+};
+
+// fields that fully describe a budget item
+export type Budget = {
   amount: number;
   category: 'salaries' | 'gift' | CustomCategory;
   timestamp: Date;

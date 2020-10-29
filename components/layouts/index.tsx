@@ -7,11 +7,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import BottomNavBar from '../BottomNavBar';
 
 type MainLayoutProps = {
+  customHeader: () => JSX.Element;
   children: JSX.Element | JSX.Element[];
   centerContent?: boolean;
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({
+  customHeader,
   children,
   centerContent,
 }): JSX.Element => {
@@ -27,6 +29,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         backgroundColor={theme.colors.primary}
         hidden={false}
       />
+      {customHeader()}
       <ScrollView
         contentContainerStyle={{
           ...styles.contentContainer,

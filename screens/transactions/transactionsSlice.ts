@@ -1,4 +1,4 @@
-import { Expense, Income, TransactionPeriod } from '../../utils/types';
+import { Expense, Income, Budget, TransactionPeriod } from '../../utils/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import isEqual from 'lodash/isEqual';
 
@@ -7,6 +7,7 @@ interface TransactionsState {
   date: Date;
   expenses: Expense[];
   incomes: Income[];
+  budgets: Budget[];
 }
 
 const initialState: TransactionsState = {
@@ -14,6 +15,7 @@ const initialState: TransactionsState = {
   date: new Date(),
   expenses: [],
   incomes: [],
+  budgets: [],
 };
 
 const transactionsState = createSlice({
@@ -32,6 +34,13 @@ const transactionsState = createSlice({
     },
     removeIncome(state, action: PayloadAction<Income>) {
       state.incomes.filter((inc) => !isEqual(inc, action.payload));
+    },
+
+    addBudget(state, action: PayloadAction<Budget>) {
+      state.budgets.push(action.payload);
+    },
+    removeBudget(state, action: PayloadAction<Budget>) {
+      state.budgets.filter((bud) => !isEqual(bud, action.payload));
     },
 
     setTransactionPeriod(state, action: PayloadAction<TransactionPeriod>) {
