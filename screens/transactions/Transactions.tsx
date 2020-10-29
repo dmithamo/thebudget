@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
@@ -6,23 +7,43 @@ import CustomTextWrapper from '../../components/CustomTextWrapper';
 import Header from '../../components/Header';
 import MainLayout from '../../components/layouts';
 import TabSelector from '../../components/TabSelector';
+import { ICONS } from '../../utils/constants';
 import Budgets from './Budget';
 import Expenses from './Expenses';
 import Incomes from './Income';
 
 const Transactions: React.FC = (): JSX.Element => {
+  const navigation = useNavigation();
   const tabs = [
     {
       name: 'Income',
-      icon: 'bank-plus',
+      icon: ICONS.income,
     },
     {
       name: 'Expenses',
-      icon: 'bank-minus',
+      icon: ICONS.expense,
     },
     {
       name: 'Budget',
-      icon: 'wallet',
+      icon: ICONS.budget,
+    },
+  ];
+
+  const overlayBtnActions = [
+    {
+      icon: ICONS.income,
+      label: 'Record income',
+      onPress: () => navigation.navigate('record-income'),
+    },
+    {
+      icon: ICONS.expense,
+      label: 'Record expense',
+      onPress: () => navigation.navigate('record-expense'),
+    },
+    {
+      icon: ICONS.budget,
+      label: 'Create budget',
+      onPress: () => navigation.navigate('create-budget'),
     },
   ];
 
@@ -48,7 +69,7 @@ const Transactions: React.FC = (): JSX.Element => {
 
       <View>
         <CustomButton
-          icon="folder-search"
+          icon={ICONS.search}
           onPress={() => {
             console.log('SEARCHING');
           }}
@@ -71,7 +92,10 @@ const Transactions: React.FC = (): JSX.Element => {
   };
 
   return (
-    <MainLayout customHeader={CustomHeader}>
+    <MainLayout
+      customHeader={CustomHeader}
+      showOverlayButton
+      overlayBtnActions={overlayBtnActions}>
       <View style={styles.tabs}>
         <TabSelector
           tabs={tabs}

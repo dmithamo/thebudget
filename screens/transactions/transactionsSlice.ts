@@ -1,6 +1,13 @@
-import { Expense, Income, Budget, TransactionPeriod } from '../../utils/types';
+import {
+  Expense,
+  Income,
+  Budget,
+  TransactionPeriod,
+  Category,
+} from '../../utils/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import isEqual from 'lodash/isEqual';
+import { subDays } from 'date-fns';
 
 interface TransactionsState {
   transactionPeriod: TransactionPeriod;
@@ -11,9 +18,16 @@ interface TransactionsState {
 }
 
 const initialState: TransactionsState = {
-  transactionPeriod: TransactionPeriod.Monthly,
+  transactionPeriod: TransactionPeriod.Annual,
   date: new Date(),
-  expenses: [],
+  expenses: [
+    {
+      amount: 2000,
+      timestamp: subDays(new Date(), 30),
+      description: 'Buy the thing',
+      category: Category.Groceries,
+    },
+  ],
   incomes: [],
   budgets: [],
 };

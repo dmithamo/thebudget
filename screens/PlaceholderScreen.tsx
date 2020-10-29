@@ -1,4 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
+import { useRoute } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CustomTextWrapper from '../components/CustomTextWrapper';
@@ -6,6 +7,7 @@ import Header from '../components/Header';
 import MainLayout from '../components/layouts';
 
 export default function PlaceholderScreen() {
+  const route = useRoute();
   const CustomHeader = () => (
     <Header
       style={{
@@ -13,6 +15,9 @@ export default function PlaceholderScreen() {
         borderBottomEndRadius: 0,
         borderBottomStartRadius: 0,
       }}>
+      <CustomTextWrapper style={{ textTransform: 'uppercase' }}>
+        {route.name}
+      </CustomTextWrapper>
       <CustomTextWrapper>Working on IT&reg;</CustomTextWrapper>
     </Header>
   );

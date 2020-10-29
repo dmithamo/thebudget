@@ -27,7 +27,7 @@ const Expenses: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flexGrow: 1 },
 });
 
 export default Expenses;
