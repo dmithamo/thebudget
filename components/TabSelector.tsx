@@ -60,11 +60,12 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderRadius: 10,
-    elevation: 1,
   },
   tab: {
-    width: 124,
+    width: 125,
   },
 
   tabIcon: {

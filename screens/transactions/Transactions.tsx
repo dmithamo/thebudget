@@ -1,19 +1,49 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useTheme } from 'react-native-paper';
+import CustomButton from '../../components/CustomButton';
+import CustomTextWrapper from '../../components/CustomTextWrapper';
+import Header from '../../components/Header';
 import MainLayout from '../../components/layouts';
 import TabSelector from '../../components/TabSelector';
+import { ICONS } from '../../utils/constants';
+import Budgets from './Budget';
 import Expenses from './Expenses';
 import Incomes from './Income';
 
 const Transactions: React.FC = (): JSX.Element => {
+  const navigation = useNavigation();
   const tabs = [
     {
       name: 'Income',
-      icon: 'bank-plus',
+      icon: ICONS.income,
     },
     {
       name: 'Expenses',
-      icon: 'bank-minus',
+      icon: ICONS.expense,
+    },
+    {
+      name: 'Budget',
+      icon: ICONS.budget,
+    },
+  ];
+
+  const overlayBtnActions = [
+    {
+      icon: ICONS.income,
+      label: 'Record income',
+      onPress: () => navigation.navigate('record-income'),
+    },
+    {
+      icon: ICONS.expense,
+      label: 'Record expense',
+      onPress: () => navigation.navigate('record-expense'),
+    },
+    {
+      icon: ICONS.budget,
+      label: 'Create budget',
+      onPress: () => navigation.navigate('create-budget'),
     },
   ];
 
@@ -22,8 +52,50 @@ const Transactions: React.FC = (): JSX.Element => {
     setSelectedTab(name);
   };
 
+  const theme = useTheme();
+  const CustomHeader = () => (
+    <Header childrenStyle={styles.header}>
+      <View>
+        <CustomTextWrapper
+          style={{
+            ...styles.title,
+            fontFamily: theme.fonts.medium.fontFamily,
+            fontWeight: theme.fonts.medium.fontWeight,
+          }}>
+          Transactions
+        </CustomTextWrapper>
+        <CustomTextWrapper>All transactions</CustomTextWrapper>
+      </View>
+
+      <View>
+        <CustomButton
+          icon={ICONS.search}
+          onPress={() => {
+            console.log('SEARCHING');
+          }}
+        />
+      </View>
+    </Header>
+  );
+
+  const renderAppropriateView = () => {
+    switch (selectedTab) {
+      case 'Income':
+        return <Incomes />;
+
+      case 'Budget':
+        return <Budgets />;
+
+      default:
+        return <Expenses />;
+    }
+  };
+
   return (
-    <MainLayout>
+    <MainLayout
+      customHeader={CustomHeader}
+      showOverlayButton
+      overlayBtnActions={overlayBtnActions}>
       <View style={styles.tabs}>
         <TabSelector
           tabs={tabs}
@@ -31,19 +103,23 @@ const Transactions: React.FC = (): JSX.Element => {
           onSelectTab={onChangeSelectedTab}
         />
       </View>
-      <View style={styles.transactions}>
-        {selectedTab === 'Expenses' ? <Expenses /> : <Incomes />}
-      </View>
+      <View style={styles.transactions}>{renderAppropriateView()}</View>
     </MainLayout>
   );
 };
 
 const styles = StyleSheet.create({
   container: {},
+  header: {
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  title: { textTransform: 'uppercase', fontSize: 20 },
   tabs: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   transactions: {
     flexGrow: 1,

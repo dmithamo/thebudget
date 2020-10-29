@@ -5,15 +5,22 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BottomNavBar from '../BottomNavBar';
+import OverlayButton from '../OverlayButton';
 
 type MainLayoutProps = {
+  customHeader: () => JSX.Element;
   children: JSX.Element | JSX.Element[];
   centerContent?: boolean;
+  showOverlayButton?: boolean;
+  overlayBtnActions?: Array<any>;
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({
+  customHeader,
   children,
   centerContent,
+  showOverlayButton,
+  overlayBtnActions,
 }): JSX.Element => {
   const theme = useTheme();
   return (
@@ -27,6 +34,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         backgroundColor={theme.colors.primary}
         hidden={false}
       />
+      {customHeader()}
       <ScrollView
         contentContainerStyle={{
           ...styles.contentContainer,
@@ -34,6 +42,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         }}>
         {children}
       </ScrollView>
+      {showOverlayButton ? (
+        <OverlayButton actions={overlayBtnActions || []} />
+      ) : undefined}
       <BottomNavBar />
     </SafeAreaView>
   );

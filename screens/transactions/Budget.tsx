@@ -7,19 +7,19 @@ import { formartCurrency } from '../../utils/format';
 import { TransactionPeriod } from '../../utils/types';
 import { getTransactionTotal } from './helpers';
 
-const Expenses: React.FC = () => {
-  const { expenses, transactionPeriod } = useSelector(
+const Budgets: React.FC = () => {
+  const { budgets, transactionPeriod } = useSelector(
     (state: RootState) => state.transactions,
   );
   return (
     <View style={styles.container}>
       <CustomTextWrapper>
-        {TransactionPeriod[transactionPeriod]} expenses
+        {TransactionPeriod[transactionPeriod]} budget
       </CustomTextWrapper>
       <View>
         <CustomTextWrapper>
-          Total expenses&nbsp;
-          {formartCurrency(getTransactionTotal(expenses, transactionPeriod))}
+          Total in budget&nbsp;
+          {formartCurrency(getTransactionTotal(budgets, transactionPeriod))}
         </CustomTextWrapper>
       </View>
     </View>
@@ -27,7 +27,7 @@ const Expenses: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flexGrow: 1 },
+  container: {},
 });
 
-export default Expenses;
+export default Budgets;

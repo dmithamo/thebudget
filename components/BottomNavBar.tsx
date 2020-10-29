@@ -15,26 +15,28 @@ export const BottomNavBar: React.FC = () => {
   return (
     <View
       style={{ ...navbarStyles.navbar, backgroundColor: theme.colors.primary }}>
-      {navItems.map(({ name, icon }) => (
-        <CustomButton
-          key={name}
-          style={navbarStyles.navbarBtn}
-          icon={isCurrentRoute(name) ? icon.split('-outline')[0] : icon}
-          iconSize={28}
-          iconStyle={{
-            ...navbarStyles.navIcon,
-            ...{
-              color: isCurrentRoute(name)
-                ? theme.colors.accent
-                : theme.colors.text,
-              backgroundColor: isCurrentRoute(name)
-                ? theme.colors.onSurface
-                : theme.colors.primary,
-            },
-          }}
-          onPress={() => navigation.navigate(name)}
-        />
-      ))}
+      {navItems
+        .filter((n) => n.showOnNav)
+        .map(({ name, icon }) => (
+          <CustomButton
+            key={name}
+            style={navbarStyles.navbarBtn}
+            icon={isCurrentRoute(name) ? icon.split('-outline')[0] : icon}
+            iconSize={28}
+            iconStyle={{
+              ...navbarStyles.navIcon,
+              ...{
+                color: isCurrentRoute(name)
+                  ? theme.colors.accent
+                  : theme.colors.text,
+                backgroundColor: isCurrentRoute(name)
+                  ? theme.colors.onSurface
+                  : theme.colors.primary,
+              },
+            }}
+            onPress={() => navigation.navigate(name)}
+          />
+        ))}
     </View>
   );
 };

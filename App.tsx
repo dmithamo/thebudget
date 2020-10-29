@@ -26,6 +26,7 @@ const theme: Theme = {
   colors: {
     ...DefaultTheme.colors,
     background: Colors.grey100,
+    backdrop: '#fff0',
     primary: Colors.white,
     text: Colors.grey800,
     accent: Colors.greenA400,
